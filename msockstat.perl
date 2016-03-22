@@ -5,6 +5,8 @@
 #  Last Edition: 07/09/2015
 #  Contact: pj4dev.mit@gmail.com
 
+print "Mac Sockstat by Peez Gloriousintel\n";
+print "version 1.0 (https://github.com/Peez-Gloriousintel/Mac-Sockstat)\n";
 $listening_port = `netstat -ant | grep LISTEN`;
 @elements = split /\n/ , $listening_port;
 
