@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!PATH_TO_PERL -w
  
 #  msockstat.perl
 #  Author: Peez Gloriousintel
