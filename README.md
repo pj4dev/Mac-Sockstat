@@ -10,10 +10,10 @@ A command line tool for checking opening ports on Mac OS X.
 
 ## Installation
 ```
-sh install.sh
+$ sh install.sh
 ```
 
 ## Usage
 ```
-msockstat
+$ msockstat
 ```
