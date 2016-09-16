@@ -1,12 +1,11 @@
 #!PATH_TO_PERL -w
  
-#  msockstat.perl
-#  Author: Peez Gloriousintel
-#  Last Edition: 07/09/2015
-#  Contact: pj4dev.mit@gmail.com
+#  @name: msockstat.perl
+#  @author: pj4dev.mit@gmail.com
+#  @last_edition: 07/09/2015
 
-print "Mac Sockstat by Peez Gloriousintel\n";
-print "version 1.0 (https://github.com/Peez-Gloriousintel/Mac-Sockstat)\n";
+print "Mac Sockstat by pj4dev\n";
+print "version 1.0 (https://github.com/pj4dev/Mac-Sockstat)\n";
 $listening_port = `netstat -ant | grep LISTEN`;
 @elements = split /\n/ , $listening_port;
 
