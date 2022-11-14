@@ -7,11 +7,18 @@
 print "#========================================================\n";
 print "| Mac Sockstat by pj4dev (update)\n";
 print "| extended by jetedonner - 14.11.2022 (Added ESTABLISHED)\n";
-print "| version 1.0.1a (https://github.com/pj4dev/Mac-Sockstat)\n";
+print "| version 1.0.1c (https://github.com/pj4dev/Mac-Sockstat)\n";
 print "#========================================================\n";
 
-$listening_port = `netstat -ant | grep -E "LISTEN|ESTABLISHED"`; # (1.0.1a - This line is new)
-#$listening_port = `netstat -ant | grep LISTEN`; 
+if ($ARGV[0] eq "-e") {  
+
+    $listening_port = `netstat -ant | grep -E "LISTEN|ESTABLISHED"`;
+    $establ = TRUE;
+} 
+else{
+	$listening_port = `netstat -ant | grep LISTEN`;
+	$establ = FALSE;
+}
 
 @elements = split /\n/ , $listening_port;
 
@@ -25,9 +32,13 @@ print "APP:PORT\tPID\tUSER\tVERSION\tPROTOCOL\tSOCKET\n";
 foreach $socket (keys %open_port) {
 	$open_port{$socket}[1] =~ /\.([0-9]+)$/;
 	$port = $1;
-	
-	$output = `lsof -ni 4:$port | grep -E "LISTEN|ESTABLISHED"`; # (1.0.1a - This line is new)
-	#$output = `lsof -ni 4:$port | grep LISTEN`;
+
+	if($establ){
+		$output = `lsof -ni 4:$port | grep -E "LISTEN|ESTABLISHED"`;
+	}
+	else{
+		$output = `lsof -ni 4:$port | grep LISTEN`;
+	}
 
 	chomp $output;
 	$output =~ s/\s+/ /g;
