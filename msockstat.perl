@@ -15,7 +15,6 @@ print "| msockstat [-e] (-e also includes ESTABLISHED sockets)\n";
 print "#========================================================\n";
 
 if ($ARGV[0] eq "-e") {  
-
     $listening_port = `netstat -ant | grep -E "LISTEN|ESTABLISHED"`;
     $establ = TRUE;
 } else {
