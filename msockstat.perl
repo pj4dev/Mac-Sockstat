@@ -2,7 +2,8 @@
  
 #  @name: msockstat.perl
 #  @author: pj4dev.mit@gmail.com
-#  @last_edition: 07/09/2015
+#  @updated_by: kim@kimhauser.ch
+#  @last_edition: 11/15/2022
 
 print "#========================================================\n";
 print "| Mac Sockstat by pj4dev (update)\n";
@@ -14,8 +15,7 @@ if ($ARGV[0] eq "-e") {
 
     $listening_port = `netstat -ant | grep -E "LISTEN|ESTABLISHED"`;
     $establ = TRUE;
-} 
-else{
+} else {
 	$listening_port = `netstat -ant | grep LISTEN`;
 	$establ = FALSE;
 }
@@ -33,10 +33,9 @@ foreach $socket (keys %open_port) {
 	$open_port{$socket}[1] =~ /\.([0-9]+)$/;
 	$port = $1;
 
-	if($establ){
+	if($establ) {
 		$output = `lsof -ni 4:$port | grep -E "LISTEN|ESTABLISHED"`;
-	}
-	else{
+	} else {
 		$output = `lsof -ni 4:$port | grep LISTEN`;
 	}
 
