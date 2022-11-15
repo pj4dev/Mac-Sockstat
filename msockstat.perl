@@ -8,7 +8,10 @@
 print "#========================================================\n";
 print "| Mac Sockstat by pj4dev (update)\n";
 print "| extended by jetedonner - 14.11.2022 (Added ESTABLISHED)\n";
-print "| version 1.0.1c (https://github.com/pj4dev/Mac-Sockstat)\n";
+print "| version 1.0.1d (https://github.com/pj4dev/Mac-Sockstat)\n";
+print "|                                                        \n";
+print "| USAGE:                                                 \n";
+print "| msockstat [-e] (-e also includes ESTABLISHED sockets)\n";
 print "#========================================================\n";
 
 if ($ARGV[0] eq "-e") {  
